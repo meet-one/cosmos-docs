@@ -1,14 +1,12 @@
 # Join the testnet
 
-::: tip 
+> tip: 
 See the [testnets repo](https://github.com/cosmos/testnets) for
 information on the testnet, including the correct version
 of the Cosmos-SDK to use and details about the genesis file.
-:::
 
-::: warning
+> warning:
 **You need to [install gaia](./installation.md) before you go further**
-:::
 
 ## Setting Up a New Node
 
@@ -20,9 +18,8 @@ First, initialize the node and create the necessary config files:
 gaiad init <your_custom_moniker>
 ```
 
-::: warning Note
+> warning Note
 Monikers can contain only ASCII characters. Using Unicode characters will render your node unreachable.
-:::
 
 You can edit this `moniker` later, in the `~/.gaiad/config/config.toml` file:
 
@@ -45,8 +42,7 @@ You can edit the `~/.gaiad/config/gaiad.toml` file in order to enable the anti s
 
 minimum-gas-prices = ""
 ```
-::: tip On gaia-13003 testnet, the accepted denom is muon, where 1atom = 1.000.000muon
-:::
+> tip: On gaia-13003 testnet, the accepted denom is muon, where 1atom = 1.000.000muon
 
 Your full node has been initialized! 
 
@@ -61,9 +57,7 @@ mkdir -p $HOME/.gaiad/config
 curl https://raw.githubusercontent.com/cosmos/testnets/master/gaia-13k/genesis.json > $HOME/.gaiad/config/genesis.json
 ```
 
-Note we use the `gaia-13k` directory in the [testnets repo](https://github.com/cosmos/testnets) which contains details for the testnet like the latest version and the genesis file. 
-
-
+Note we use the `gaia-13k` directory in the [testnets repo](https://github.com/cosmos/testnets) which contains details for the testnet like the latest version and the genesis file.
 
 ## Run a Full Node
 
@@ -79,8 +73,7 @@ Check that everything is running smoothly:
 gaiacli status
 ```
 
-View the status of the network with the [Cosmos Explorer](https://cosmos.network/launch). 
-
+View the status of the network with the [Cosmos Explorer](https://cosmos.network/launch).
 
 # Run a Validator on the testnet
 
@@ -94,14 +87,11 @@ gaiad tendermint show-validator
 
 To create your validator, just use the following command:
 
-::: tip
+> tip:
 You can get test cions from [Faucet](https://hubble.figment.network/cosmos/chains/gaia-13003/faucet)
-:::
 
-
-::: warning 
-Don't use more `muon` than you have! 
-:::
+> warning: 
+Don't use more `muon` than you have!
 
 ```bash
 gaiacli tx staking create-validator \
@@ -118,12 +108,10 @@ gaiacli tx staking create-validator \
   --from=<key_name>
 ```
 
-::: tip
+> tip:
 When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
-:::
 
-::: tip
+> tip:
 `Min-self-delegation` is a stritly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of 1 means your validator will never have a self-delegation lower than `1atom`, or `1000000muon`
-:::
 
 You can confirm that you are in the validator set by using a third party explorer.
