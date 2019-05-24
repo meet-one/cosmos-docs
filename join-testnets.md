@@ -6,7 +6,7 @@ information on the testnet, including the correct version
 of the Cosmos-SDK to use and details about the genesis file.
 
 > warning:
-**You need to [install gaia](./installation.md) before you go further**
+**You need to [install gaia](https://github.com/cosmos/gaia/blob/b53ebaae0b0e683955d0057323dcbbf4b1133da0/docs/installation.md) before you go further**
 
 ## Setting Up a New Node
 
@@ -73,7 +73,7 @@ Check that everything is running smoothly:
 gaiacli status
 ```
 
-View the status of the network with the [Cosmos Explorer](https://cosmos.network/launch).
+View the status of the network with the [Cosmos Explorer](https://hubble.figment.network/cosmos/chains/gaia-13003).
 
 # Run a Validator on the testnet
 
