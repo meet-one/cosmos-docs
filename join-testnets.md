@@ -2,7 +2,7 @@
 
 > tip: 
 See the [testnets repo](https://github.com/cosmos/testnets) for
-information on the testnet, including the correct version
+information on the testnets, including the correct version
 of the Cosmos-SDK to use and details about the genesis file.
 
 > warning:
@@ -18,7 +18,7 @@ First, initialize the node and create the necessary config files:
 gaiad init <your_custom_moniker>
 ```
 
-> warning Note
+> warning: Note
 Monikers can contain only ASCII characters. Using Unicode characters will render your node unreachable.
 
 You can edit this `moniker` later, in the `~/.gaiad/config/config.toml` file:
@@ -30,7 +30,7 @@ moniker = "<your_custom_moniker>"
 
 You can edit the `~/.gaiad/config/gaiad.toml` file in order to enable the anti spam mechanism and reject incoming transactions with less than the minimum gas prices:
 
-```
+```toml
 # This is a TOML config file.
 # For more information, see https://github.com/toml-lang/toml
 
@@ -44,7 +44,7 @@ minimum-gas-prices = ""
 ```
 > tip: On gaia-13003 testnet, the accepted denom is muon, where 1atom = 1.000.000muon
 
-Your full node has been initialized! 
+Your full node has been initialized!
 
 ## Genesis
 
@@ -88,10 +88,9 @@ gaiad tendermint show-validator
 To create your validator, just use the following command:
 
 > tip:
-You can get test cions from [Faucet](https://hubble.figment.network/cosmos/chains/gaia-13003/faucet)
+You can get test coins from [Faucet](https://hubble.figment.network/cosmos/chains/gaia-13003/faucet)
 
-> warning: 
-Don't use more `muon` than you have!
+> warning: Don't use more `muon` than you have!
 
 ```bash
 gaiacli tx staking create-validator \
@@ -108,10 +107,8 @@ gaiacli tx staking create-validator \
   --from=<key_name>
 ```
 
-> tip:
-When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
+> tip: When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
 
-> tip:
-`Min-self-delegation` is a stritly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of 1 means your validator will never have a self-delegation lower than `1atom`, or `1000000muon`
+> tip: `Min-self-delegation` is a stritly positive integer that represents the minimum amount of self-delegated voting power your validator must always have. A `min-self-delegation` of 1 means your validator will never have a self-delegation lower than `1atom`, or `1000000muon`
 
-You can confirm that you are in the validator set by using a third party explorer.
+You can confirm that you are in the validator set by using a third party [explorer](https://cosmos.network/launch).
